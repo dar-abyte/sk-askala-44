@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+<title>SK ASKALA 44 REVEAL</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- persistent top strip: challenge progress dots -->
+  <div id="progress-strip" class="pixel-panel hidden">
+    <div class="dot" id="dot-1"><span>1</span></div>
+    <div class="track"></div>
+    <div class="dot" id="dot-2"><span>2</span></div>
+    <div class="track"></div>
+    <div class="dot" id="dot-3"><span>3</span></div>
+  </div>
+
+  <!-- ============ SCREEN: INTRO ============ -->
+  <section id="screen-intro" class="screen active">
+    <div class="stars"></div>
+    <div class="intro-inner">
+      <div class="badge" id="event-badge">SF</div>
+      <p class="eyebrow" id="event-name-label">ASKALA 44</p>
+      <p class="presents">PROUDLY PRESENTS</p>
+      <h1 class="title-huge">SK ASKALA<br>44 REVEAL</h1>
+      <div class="story-lines" id="story-lines">
+        <p>The most big event is coming</p>
+        <p>Get ready to our big journey</p>
+        <p>But your role remains locked.</p>
+        <p>Complete the quest to unlock it.</p>
+            </div>
+
+      <input
+        id="member-id"
+        type="text"
+        placeholder="ENTER YOUR ID"
+        autocomplete="off"
+      >
+
+      <button id="btn-start" class="pixel-btn pixel-btn-primary">
+        ENTER QUEST
+      </button>
+
+      <p class="hint">arrow keys / on-screen buttons to move &amp; jump</p>
+    </div>
+  </section>
+
+  <!-- ============ GAME (canvas world) ============ -->
+  <section id="screen-game" class="screen">
+    <div id="game-hud" class="game-hud">
+      <div class="hud-left">
+        <p class="hud-mission" id="hud-mission">MISSION: COLLECT THE ENERGY</p>
+        <p class="hud-counter" id="hud-counter">ENERGY 0/5</p>
+      </div>
+      <div class="hud-right">
+        <div id="hud-hearts" class="hud-hearts"></div>
+        <button id="btn-mute" class="mute-btn" aria-label="mute">🔊</button>
+      </div>
+    </div>
+    <div class="timer-wrap"><div id="timer-bar" class="timer-bar"></div></div>
+
+    <div id="canvas-wrap">
+      <canvas id="game-canvas"></canvas>
+      <div id="toast" class="toast hidden"></div>
+    </div>
+
+    <div id="touch-controls" class="touch-controls">
+      <div class="touch-side">
+        <button id="btn-left" class="touch-btn">◀</button>
+        <button id="btn-right" class="touch-btn">▶</button>
+      </div>
+      <div class="touch-side">
+        <button id="btn-boost" class="touch-btn touch-btn-small">BOOST</button>
+        <button id="btn-jump" class="touch-btn touch-btn-big">JUMP</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN: FAIL ============ -->
+  <section id="screen-fail" class="screen">
+    <div class="fail-inner">
+      <h2 class="title-med">CHALLENGE FAILED</h2>
+      <p id="fail-sub" class="fail-sub">Your role is still locked.</p>
+      <button id="btn-retry" class="pixel-btn pixel-btn-primary">TRY AGAIN</button>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN: GATE / QUEST COMPLETE NARRATIVE ============ -->
+  <section id="screen-gate" class="screen">
+    <div class="gate-inner">
+      <h2 class="title-med" id="gate-line-1">QUEST COMPLETE</h2>
+      <p class="gate-line" id="gate-line-2"></p>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN: SUSPENSE ============ -->
+  <section id="screen-suspense" class="screen">
+    <div class="suspense-inner">
+      <p class="mono-line" id="suspense-status">ACCESSING PERSONNEL FILE...</p>
+      <div class="load-track"><div id="load-fill" class="load-fill"></div></div>
+      <p class="mono-line dim" id="suspense-status-2"></p>
+      <p class="countdown" id="countdown"></p>
+    </div>
+  </section>
+
+  <!-- ============ SCREEN: REVEAL ============ -->
+  <section id="screen-reveal" class="screen">
+    <div class="reveal-inner">
+      <div class="reveal-card" id="reveal-card">
+        <div class="badge small" id="reveal-badge">SF</div>
+        <p class="eyebrow">QUEST COMPLETE</p>
+        <p class="reveal-role-label">YOUR ROLE</p>
+        <h2 class="reveal-division" id="reveal-division">SIE ACARA</h2>
+        <p class="reveal-name" id="reveal-name">NAMA LENGKAP</p>
+        <p class="reveal-tagline" id="reveal-tagline">"You make the moments happen."</p>
+        <p class="reveal-event" id="reveal-event">EVENT NAME</p>
+      </div>
+      <div class="reveal-actions">
+        <button id="btn-save" class="pixel-btn">SAVE MY ROLE</button>
+        <button id="btn-enter" class="pixel-btn pixel-btn-primary">ENTER THE TEAM</button>
+        <button id="btn-again" class="pixel-btn pixel-btn-ghost">PLAY AGAIN</button>
+      </div>
+    </div>
+  </section>
+<!-- ============ SCREEN: TEAM ============ -->
+<section id="screen-team" class="screen">
+  <div class="team-inner">
+
+    <p class="eyebrow">yeay goodluck, bismillah askala 44 2 GS</p>
+
+    <h2 class="team-title" id="team-division">
+    </h2>
+
+    <p class="team-subtitle">
+      YOUR FELLOW MEMBERS
+    </p>
+
+    <div id="team-list" class="team-list"></div>
+
+    <button id="btn-team-back" class="pixel-btn pixel-btn-ghost">
+      BACK
+    </button>
+
+  </div>
+</section>
+  <canvas id="card-export" class="hidden" width="600" height="800"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
